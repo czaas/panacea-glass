@@ -6,13 +6,15 @@ class Cards extends React.Component {
 
 	render() {
 		let cards = this.props.feed.map(function(card, i){
-			return <Card _link={card.link} iindex={i} images={card.images} />
+			return <Card instagramLink={card.link} feedIndex={i} images={card.images} />
 		})
 
 		return (
-			<div>
-				<h2>All Cards</h2>
-				{cards}
+			<div className="pure-g">
+				<h2 className="pure-u-1">All Cards</h2>
+				<div className="cardContainer pure-g">
+					{cards}
+				</div>
 			</div>
 		)
 	}

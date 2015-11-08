@@ -14,7 +14,7 @@ class App extends React.Component {
 		
 	}
 
-	componentWillMount(){
+	componentWillMount() {
 		let that = this
 
 		let feed = new Instafeed({
