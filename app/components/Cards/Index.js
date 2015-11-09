@@ -5,9 +5,10 @@ import Card from './Card'
 class Cards extends React.Component {
 
 	render() {
+
 		let cards = this.props.feed.map(function(card, i){
-			return <Card instagramLink={card.link} feedIndex={i} images={card.images} />
-		})
+			return <Card instagramLink={card.link} feedIndex={i} images={card.images} launchModal={this.props.launchModal} />
+		}.bind(this))
 
 		return (
 			<div className="pure-g">

@@ -2,6 +2,7 @@ import React from 'react'
 import Instafeed from 'instafeed.js'
 
 import Cards from './Cards/Index'
+import ContactModal from './Modals/ContactModal'
 
 class App extends React.Component {
 
@@ -34,11 +35,16 @@ class App extends React.Component {
 		feed.run()
 	}
 
+	handleModals(typeOfModal){
+		console.log('Handle Modal was requested', typeOfModal)
+	}
+
 	render() {
 		return (
 			<div>
 				<h1>Chads Glass V2</h1>
-				<Cards feed={this.state.feed} />
+				<Cards feed={this.state.feed} launchModal={this.handleModals} />
+				<ContactModal />
 			</div>
 		)
 	}
