@@ -9,7 +9,6 @@ class LinkBox extends React.Component {
 
 	launchModal(){
 		this.props.launchModal(this.props.feedIndex)
-		console.log('test')
 	}
 
 	render() {

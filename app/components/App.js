@@ -9,8 +9,11 @@ class App extends React.Component {
 	constructor() {
 		super()
 
+		this.handleModals = this.handleModals.bind(this)
+
 		this.state = {
-			feed: []
+			feed: [],
+			contactModal: ""
 		}
 		
 	}
@@ -37,6 +40,9 @@ class App extends React.Component {
 
 	handleModals(typeOfModal){
 		console.log('Handle Modal was requested', typeOfModal)
+		this.setState({
+			contactModal: "showModal"
+		})
 	}
 
 	render() {
@@ -44,7 +50,7 @@ class App extends React.Component {
 			<div>
 				<h1>Chads Glass V2</h1>
 				<Cards feed={this.state.feed} launchModal={this.handleModals} />
-				<ContactModal />
+				<ContactModal modalState={this.state.contactModal} />
 			</div>
 		)
 	}

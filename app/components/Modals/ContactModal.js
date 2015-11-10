@@ -6,13 +6,24 @@ class ContactModal extends React.Component {
 	constructor(){
 		super()
 		this.handleMessage = this.handleMessage.bind(this)
+		this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this)
 	}
 
 	handleMessage(e){
 		e.preventDefault()
 	}
 
+	componentWillReceiveProps(){
+
+		if(this.props.modalState === "showModal"){
+			this.refs.contactModal.show()
+		} else {
+			this.refs.contactModal.hide()
+		}
+	}
+
 	render() {
+
 		return (
 			<Modal ref="contactModal">
 				<h2>Want this piece?</h2>
