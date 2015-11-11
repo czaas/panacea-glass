@@ -3,6 +3,7 @@ import Instafeed from 'instafeed.js'
 
 import Cards from './Cards/Index'
 import ContactModal from './Modals/ContactModal'
+import ZoomModal from './Modals/ZoomModal'
 
 class App extends React.Component {
 
@@ -13,7 +14,8 @@ class App extends React.Component {
 
 		this.state = {
 			feed: [],
-			contactModal: ""
+			contactModal: {},
+			zoomModal: {}
 		}
 		
 	}
@@ -44,10 +46,18 @@ class App extends React.Component {
 				contactModal: { 
 					shouldShow: "showModal",
 					image: this.state.feed[imageIndex].images.low_resolution.url
-				}
+				},
+				zoomModal: {}
+			})
+		} else if(typeOfModal === 'zoom'){
+			this.setState({
+				zoomModal: {
+					shouldShow: 'showModal',
+					image: this.state.feed[imageIndex].images.standard_resolution.url
+				},
+				contactModal: {}
 			})
 		}
-		console.log(typeOfModal, imageIndex)
 	}
 
 	render() {
@@ -56,6 +66,7 @@ class App extends React.Component {
 				<h1>Chads Glass V2</h1>
 				<Cards feed={this.state.feed} launchModal={this.handleModals} />
 				<ContactModal modalState={this.state.contactModal} />
+				<ZoomModal modalState={this.state.zoomModal} />
 			</div>
 		)
 	}
