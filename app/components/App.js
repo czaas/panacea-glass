@@ -39,10 +39,10 @@ class App extends React.Component {
 	}
 
 	handleModals(typeOfModal){
-		console.log('Handle Modal was requested', typeOfModal)
 		this.setState({
 			contactModal: "showModal"
 		})
+		//console.log('Handle Modal was requested', typeOfModal)
 	}
 
 	render() {

@@ -13,16 +13,14 @@ class ContactModal extends React.Component {
 		e.preventDefault()
 	}
 
-	componentWillReceiveProps(){
-
-		if(this.props.modalState === "showModal"){
-			this.refs.contactModal.show()
-		} else {
-			this.refs.contactModal.hide()
-		}
+	componentWillReceiveProps (){
+		// This needs to be here so when the modalState is passed down this component will know to popup	
 	}
 
 	render() {
+		if(this.props.modalState === "showModal"){
+			this.refs.contactModal.show()
+		}
 
 		return (
 			<Modal ref="contactModal">
