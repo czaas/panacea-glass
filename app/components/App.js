@@ -38,11 +38,16 @@ class App extends React.Component {
 		feed.run()
 	}
 
-	handleModals(typeOfModal){
-		this.setState({
-			contactModal: "showModal"
-		})
-		//console.log('Handle Modal was requested', typeOfModal)
+	handleModals(typeOfModal, imageIndex){
+		if(typeOfModal === 'contact'){
+			this.setState({
+				contactModal: { 
+					shouldShow: "showModal",
+					image: this.state.feed[imageIndex].images.low_resolution.url
+				}
+			})
+		}
+		console.log(typeOfModal, imageIndex)
 	}
 
 	render() {
