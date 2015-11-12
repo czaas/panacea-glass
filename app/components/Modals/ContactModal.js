@@ -17,17 +17,13 @@ class ContactModal extends React.Component {
 		// This needs to be here so when the modalState is passed down this component will know to popup	
 	}
 
-	componentWillUnmount(){
-		console.log('unmounting')
-	}
-
 	render() {
 		if(this.props.modalState.shouldShow === "showModal"){
 			this.refs.contactModal.show()
 		}
 
 		return (
-			<Modal ref="contactModal">
+			<Modal ref="contactModal" className="contactModal">
 				<h2>Want this piece?</h2>
 				<img src={this.props.modalState.image} />
 				<p>Make an offer and I will contact you.</p>
