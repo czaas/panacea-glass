@@ -63,7 +63,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Chads Glass V2</h1>
 				<Cards feed={this.state.feed} launchModal={this.handleModals} />
 				<ContactModal modalState={this.state.contactModal} />
 				<ZoomModal modalState={this.state.zoomModal} />

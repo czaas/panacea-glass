@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
@@ -8,6 +9,7 @@
 	<style>
 		* { box-sizing: border-box; }
 		*:after { box-sizing: border-box; }
+		*:focus { outline: none; }
 		.cardContainer { width: 1024px; margin: 0 auto; }
 		.card { margin-bottom: 10px; padding: 10px; position: relative; }
 		.card img { width: 100%; display: block; margin: 0 auto; }
@@ -19,9 +21,22 @@
 		.linkBox a.zoom:before { content: '\f00e'; }
 		.linkBox a:hover { background: rgba(0,0,0,.8); cursor: pointer; }
 		img { max-width: 100%; }
+
+		.contactModal > div { padding: 15px; }
+		.contactModal h2 { margin: 0 0 10px; }
+		.contactModal .thumbnail { max-width: 40%; float: right; width: 175px; margin: 0 0 5px 5px; }
+
+		.contactModal form { margin: 0; }
+		.contactModal textarea { resize: none; height: 90px; }
+		.contactModal input, .contactModal textarea { border: 1px solid #666; margin: 0 0 5px; padding: 8px 5px; }
+		.contactModal input:focus, .contactModal textarea:focus { outline: none; background: #eee; }
+		.contactModal button { width: 100%; background: #162955; color: #fff; padding: 8px 0; text-align: center; border: none; transition: background .2s ease-out; }
+		.contactModal button:after { content: '\f105'; font-family: 'fontawesome'; margin: 0 0 0 7px; }
+		.contactModal button:hover { background: #061539; }
 	</style>
 </head>
 <body>
+	<h1>Chads Glass V2</h1>
 	<div id="app"></div>
 
 	<script src="/bundled.js"></script>
