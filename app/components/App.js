@@ -11,8 +11,10 @@ class App extends React.Component {
 		super()
 
 		this.handleModals = this.handleModals.bind(this)
+		this.handleImageNav = this.handleImageNav.bind(this)
 
 		this.state = {
+			imageIndex: 0,
 			feed: [],
 			contactModal: {},
 			zoomModal: {}
@@ -40,24 +42,33 @@ class App extends React.Component {
 		feed.run()
 	}
 
-	handleModals(typeOfModal, imageIndex){
+	handleModals(typeOfModal, newIndex){
+
 		if(typeOfModal === 'contact'){
 			this.setState({
+				imageIndex: newIndex,
 				contactModal: { 
 					shouldShow: "showModal",
-					image: this.state.feed[imageIndex].images.low_resolution.url
+					image: this.state.feed[newIndex].images.low_resolution.url
 				},
 				zoomModal: {}
 			})
 		} else if(typeOfModal === 'zoom'){
 			this.setState({
+				imageIndex: newIndex,
 				zoomModal: {
 					shouldShow: 'showModal',
-					image: this.state.feed[imageIndex].images.standard_resolution.url
+					feed: this.state.feed
 				},
 				contactModal: {}
 			})
 		}
+	}
+
+	handleImageNav(newIndex){
+		this.setState({
+			imageIndex: newIndex
+		})
 	}
 
 	render() {
@@ -65,7 +76,7 @@ class App extends React.Component {
 			<div>
 				<Cards feed={this.state.feed} launchModal={this.handleModals} />
 				<ContactModal modalState={this.state.contactModal} />
-				<ZoomModal modalState={this.state.zoomModal} />
+				<ZoomModal modalState={this.state.zoomModal} currentImage={this.state.imageIndex} handleImageNav={this.handleImageNav} />
 			</div>
 		)
 	}
